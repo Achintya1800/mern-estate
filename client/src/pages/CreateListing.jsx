@@ -183,7 +183,7 @@ export default function CreateListing() {
           <input
             type='text'
             placeholder='Address'
-            className='border p-4 rounded-lg'
+            className='border p-3 rounded-lg'
             id='address'
             required
             onChange={handleChange}
