@@ -18,7 +18,7 @@ export const deleteListing = async (req, res, next) => {
   }
 
   if (req.user.id !== listing.userRef) {
-    return next(errorHandler(401, 'You can only delete your own listings!'));
+    return next(errorHandler(401, 'You cann only delete your own listings!'));
   }
 
   try {
