@@ -1,7 +1,3 @@
-Here’s an **optimized and polished version** of your README.md. It improves clarity, organization, and formatting, while preserving all key details and adding a more professional tone:
-
----
-
 # 🏡 MERN Estate - Real Estate Marketplace
 
 A **full-stack real estate marketplace** built using the **MERN** stack (MongoDB, Express.js, React.js, Node.js) with a modern UI powered by **Tailwind CSS**.
