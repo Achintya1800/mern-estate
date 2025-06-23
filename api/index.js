@@ -9,6 +9,7 @@ import path from 'path';
 
 dotenv.config();
 const app = express();
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('Connected to MongoDB!');
@@ -17,28 +18,26 @@ mongoose.connect(process.env.MONGO_URI)
     console.log('Error connecting to MongoDB:', err);
   });
 
-  const __dirname = path.resolve();
-
+const __dirname = path.resolve();
 
 app.use(express.json());
-
 app.use(cookieParser());
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000!!');
-});
-
+// API routes
 app.use('/api/user', userRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/listing', listingRouter);
 
+// Serve static files
 app.use(express.static(path.join(__dirname, '/client/dist')));
 
-app.get('*', (req, res) => {
+// Catch-all handler: send back React's index.html file for client-side routing
+app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'));
-})
+});
 
-app.use((err,req,res,next) => {
+// Error handling middleware
+app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || 'Internal Server Error';
   return res.status(statusCode).json({
@@ -46,4 +45,8 @@ app.use((err,req,res,next) => {
     statusCode,
     message,
   });
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000!!');
 });
