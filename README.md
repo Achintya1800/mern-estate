@@ -194,39 +194,7 @@ mern-estate/
    * Start command: `npm start`
    * Add required environment variables
 
-### 🚀 Deploy to Heroku
 
-1. Install Heroku CLI
-2. Create app:
-
-   ```bash
-   heroku create your-app-name
-   ```
-3. Set config vars:
-
-   ```bash
-   heroku config:set MONGO_URI=your_mongodb_uri
-   heroku config:set JWT_SECRET=your_jwt_secret
-   ```
-4. Deploy:
-
-   ```bash
-   git push heroku main
-   ```
-
----
-
-## 🧪 Testing
-
-```bash
-# Run tests
-npm test
-
-# Run with coverage
-npm run test:coverage
-```
-
----
 
 ## 🤝 Contributing
 
